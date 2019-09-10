@@ -13,20 +13,16 @@ expo install react-native-date-input
 ## Usage
 
 ```js
-import React from 'react';
+import React, { useState } from 'react';
 import { DateInput } from 'react-native-date-input';
 
 export default () => {
-  return (
-    <Form>
-      <TextInput />
-      <View>
-        // Nesting works
-        <TextInput />
-      </View>
-      // Override behaviour with onSubmitEditing prop
-      <TextInput onSubmitEditing={submit} />
-    </Form>
-  );
+  const [date, setDate] = useState('');
+
+  const handleChange = (date) => {
+    setDate(date);
+  };
+
+  return <DateInput handleChange={handleChange} />;
 };
 ```
