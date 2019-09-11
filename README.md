@@ -53,7 +53,7 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   input: {
-    background: '#000',
+    backgroundColor: '#000',
     height: 50,
   },
 });
