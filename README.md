@@ -26,12 +26,12 @@ export default (props) => {
   };
 
   const focus = () => {
-    if(!input) {
+    if (!input) {
       return;
     }
 
     input.focus();
-  }
+  };
 
   return (
     <DateInput
@@ -41,7 +41,7 @@ export default (props) => {
         ...props,
       }}
       datePickerProps={{
-        ...props
+        ...props,
       }}
       handleChange={handleChange}
       dateFormat={'DD/MM/YYYY'}
@@ -53,8 +53,8 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   input: {
-    background: '#000,
+    background: '#000',
     height: 50,
-  }
+  },
 });
 ```
