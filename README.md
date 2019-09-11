@@ -14,15 +14,47 @@ expo install react-native-date-input
 
 ```js
 import React, { useState } from 'react';
+import { StyleSheet } from 'react-native';
 import { DateInput } from 'react-native-date-input';
 
-export default () => {
+export default (props) => {
+  const [input, setInput] = useState(null);
   const [date, setDate] = useState('');
 
   const handleChange = (date) => {
     setDate(date);
   };
 
-  return <DateInput handleChange={handleChange} />;
+  const focus = () => {
+    if(!input) {
+      return;
+    }
+
+    input.focus();
+  }
+
+  return (
+    <DateInput
+      inputProps={{
+        style: [styles.input],
+        placeholderTextColor: '#fff',
+        ...props,
+      }}
+      datePickerProps={{
+        ...props
+      }}
+      handleChange={handleChange}
+      dateFormat={'DD/MM/YYYY'}
+      dark
+      onRef={(input) => setInput(input)}
+    />
+  );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    background: '#000,
+    height: 50,
+  }
+});
 ```
