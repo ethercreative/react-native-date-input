@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {
   DatePickerAndroid,
   DatePickerIOS,
+  Keyboard,
   Platform,
   StyleSheet,
   TextInput,
@@ -22,12 +23,16 @@ export default ({
   datePickerProps = {},
   dateFormat = 'YYYY-MM-DD',
   handleChange,
+  dark = false,
+  onRef,
 }) => {
   const [date, setDate] = useState(now);
   const [value, setValue] = useState('');
   const [visible, setVisible] = useState(false);
 
   const open = async () => {
+    Keyboard.dismiss();
+
     if (ANDROID) {
       let { action, year, month, day } = await DatePickerAndroid.open({
         date,
@@ -65,6 +70,10 @@ export default ({
 
     handleChange(formattedDate);
   };
+
+  if (onRef) {
+    onRef({ focus: open });
+  }
 
   const renderInput = () => {
     return (
