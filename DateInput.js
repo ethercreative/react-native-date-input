@@ -16,20 +16,19 @@ import {
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import moment from 'moment';
 
-const ANDROID = Platform.OS === 'android';
-const now = new Date();
-
 export default ({
   inputProps = {},
   dateFormat = 'YYYY-MM-DD',
+  defaultDate = new Date(),
   minimumDate = null,
   maximumDate = null,
   handleChange,
   onRef,
 }) => {
-  const [date, setDate] = useState(now);
+  const [date, setDate] = useState(defaultDate);
   const [value, setValue] = useState('');
   const [visible, setVisible] = useState(false);
+  const ANDROID = Platform.OS === 'android';
 
   const open = async () => {
     Keyboard.dismiss();
@@ -147,7 +146,7 @@ export default ({
           </View>
 
           <DatePickerIOS
-            initialDate={now}
+            initialDate={defaultDate}
             date={date}
             minimumDate={minimumDate}
             maximumDate={maximumDate}
