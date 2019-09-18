@@ -4,6 +4,7 @@ import {
   DatePickerAndroid,
   DatePickerIOS,
   Keyboard,
+  Modal,
   Platform,
   StyleSheet,
   Text,
@@ -13,7 +14,6 @@ import {
 } from 'react-native';
 
 import { getBottomSpace } from 'react-native-iphone-x-helper';
-import Modal from 'react-native-modal';
 import moment from 'moment';
 
 const ANDROID = Platform.OS === 'android';
@@ -102,6 +102,9 @@ export default ({
         padding: 0,
         margin: 0,
       },
+      background: {
+        ...StyleSheet.absoluteFill,
+      },
       datePicker: {
         backgroundColor: 'white',
         ...StyleSheet.absoluteFill,
@@ -127,12 +130,15 @@ export default ({
     return (
       <Modal
         style={styles.modal}
-        isVisible={visible}
-        backdropColor={'rgba(0, 0, 0, 0)'}
-        useNativeDriver
-        hideModalContentWhileAnimating
-        onBackdropPress={() => close()}
+        visible={visible}
+        transparent
+        animationType={'slide'}
+        onRequestClose={close}
       >
+        <TouchableOpacity style={styles.background} onPress={close}>
+          <></>
+        </TouchableOpacity>
+
         <View style={styles.datePicker}>
           <View style={styles.bar}>
             <TouchableOpacity onPress={close} activeOpacity={0.8}>
