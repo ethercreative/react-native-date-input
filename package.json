@@ -22,7 +22,7 @@
   "author": "James Edmonston",
   "license": "MIT",
   "dependencies": {
-    "moment": "^2.24.0",
+    "dayjs": "^1.8.16",
     "react-native-iphone-x-helper": "^1.2.1"
   }
 }

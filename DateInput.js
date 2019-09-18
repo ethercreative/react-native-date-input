@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import { getBottomSpace } from 'react-native-iphone-x-helper';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export default ({
   inputProps = {},
@@ -62,7 +62,7 @@ export default ({
   };
 
   const onDateChange = (date) => {
-    const formattedDate = moment(date).format(dateFormat);
+    const formattedDate = dayjs(date).format(dateFormat);
 
     setDate(date);
     setValue(formattedDate);
