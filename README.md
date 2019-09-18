@@ -19,41 +19,34 @@ import { DateInput } from 'react-native-date-input';
 import moment from 'moment';
 
 export default (props) => {
-  const [input, setInput] = useState(null);
   const [date, setDate] = useState('');
+  let dateInput = null;
 
   const handleChange = (date) => {
     setDate(date);
   };
 
   const focus = () => {
-    if (!input) {
+    if (!dateInput) {
       return;
     }
 
-    input.focus();
+    dateInput.focus();
   };
 
   return (
     <DateInput
       inputProps={{
-        style: [styles.input],
-        placeholderTextColor: '#fff',
+        style: {},
         ...props,
+        // Supports all TextInput props
       }}
       dateFormat={'DD/MM/YYYY'}
       minimumDate={new Date(moment().subtract(10, 'year'))}
       maximumDate={new Date()}
       handleChange={handleChange}
-      onRef={(input) => setInput(input)}
+      onRef={(input) => (dateInput = input)}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    backgroundColor: '#000',
-    height: 50,
-  },
-});
 ```
