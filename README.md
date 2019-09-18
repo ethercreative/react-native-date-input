@@ -41,6 +41,7 @@ export default (props) => {
         // Supports all TextInput props
       }}
       dateFormat={'DD/MM/YYYY'}
+      defaultDate={new Date(moment().subtract(5, 'year'))}
       minimumDate={new Date(moment().subtract(10, 'year'))}
       maximumDate={new Date()}
       handleChange={handleChange}
