@@ -14,7 +14,6 @@ expo install react-native-date-input
 
 ```js
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
 import { DateInput } from 'react-native-date-input';
 import moment from 'moment';
 
