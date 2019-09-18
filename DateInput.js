@@ -6,6 +6,7 @@ import {
   Keyboard,
   Platform,
   StyleSheet,
+  Text,
   TextInput,
   TouchableOpacity,
   View,
@@ -104,6 +105,20 @@ export default ({
         top: 'auto',
         paddingBottom: getBottomSpace(),
       },
+      bar: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+        height: 44,
+      },
+      done: {
+        paddingHorizontal: 17.5,
+        fontFamily: 'System',
+        fontSize: 15,
+        color: '#147efb',
+        fontWeight: '700',
+        lineHeight: 44,
+      },
     });
 
     return (
@@ -116,6 +131,12 @@ export default ({
         onBackdropPress={() => close()}
       >
         <View style={styles.datePicker}>
+          <View style={styles.bar}>
+            <TouchableOpacity onPress={close} activeOpacity={0.8}>
+              <Text style={styles.done}>Done</Text>
+            </TouchableOpacity>
+          </View>
+
           <DatePickerIOS
             initialDate={now}
             date={date}
