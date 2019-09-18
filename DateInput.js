@@ -21,10 +21,10 @@ const now = new Date();
 
 export default ({
   inputProps = {},
-  datePickerProps = {},
   dateFormat = 'YYYY-MM-DD',
+  minimumDate = null,
+  maximumDate = null,
   handleChange,
-  dark = false,
   onRef,
 }) => {
   const [date, setDate] = useState(now);
@@ -37,6 +37,9 @@ export default ({
     if (ANDROID) {
       let { action, year, month, day } = await DatePickerAndroid.open({
         date,
+        minDate: minimumDate,
+        maxDate: maximumDate,
+        mode: 'calendar',
       });
 
       if (action === DatePickerAndroid.dismissedAction) {
@@ -80,10 +83,10 @@ export default ({
     return (
       <TouchableOpacity onPress={open} activeOpacity={1}>
         <TextInput
+          {...inputProps}
           value={value}
           editable={false}
           pointerEvents={'none'}
-          {...inputProps}
         />
       </TouchableOpacity>
     );
@@ -140,6 +143,8 @@ export default ({
           <DatePickerIOS
             initialDate={now}
             date={date}
+            minimumDate={minimumDate}
+            maximumDate={maximumDate}
             mode={'date'}
             onDateChange={onDateChange}
           />
