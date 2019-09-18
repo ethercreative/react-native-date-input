@@ -16,6 +16,7 @@ expo install react-native-date-input
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { DateInput } from 'react-native-date-input';
+import moment from 'moment';
 
 export default (props) => {
   const [input, setInput] = useState(null);
@@ -40,12 +41,10 @@ export default (props) => {
         placeholderTextColor: '#fff',
         ...props,
       }}
-      datePickerProps={{
-        ...props,
-      }}
-      handleChange={handleChange}
       dateFormat={'DD/MM/YYYY'}
-      dark
+      minimumDate={new Date(moment().subtract(10, 'year'))}
+      maximumDate={new Date()}
+      handleChange={handleChange}
       onRef={(input) => setInput(input)}
     />
   );
