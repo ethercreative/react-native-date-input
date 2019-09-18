@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Removed `read-native-modal` dependency
+- Removed `react-native-modal` dependency
 
 ## [1.0.3] - 2019-09-18
 
