@@ -13,6 +13,7 @@ import {
   View,
 } from 'react-native';
 
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import dayjs from 'dayjs';
 
@@ -97,6 +98,8 @@ export default ({
       return;
     }
 
+    const scheme = useColorScheme();
+
     const styles = StyleSheet.create({
       modal: {
         padding: 0,
@@ -106,7 +109,7 @@ export default ({
         ...StyleSheet.absoluteFill,
       },
       datePicker: {
-        backgroundColor: 'white',
+        backgroundColor: scheme === 'dark' ? 'black' : 'white',
         ...StyleSheet.absoluteFill,
         top: 'auto',
         paddingBottom: getBottomSpace(),
@@ -114,14 +117,17 @@ export default ({
       bar: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+        backgroundColor:
+          scheme === 'dark'
+            ? 'rgba(255, 255, 255, 0.1)'
+            : 'rgba(0, 0, 0, 0.03)',
         height: 44,
       },
       done: {
         paddingHorizontal: 17.5,
         fontFamily: 'System',
         fontSize: 15,
-        color: '#147efb',
+        color: scheme === 'dark' ? 'white' : '#147efb',
         fontWeight: '700',
         lineHeight: 44,
       },
@@ -160,9 +166,9 @@ export default ({
   };
 
   return (
-    <>
+    <AppearanceProvider>
       {renderInput()}
       {renderDatePicker()}
-    </>
+    </AppearanceProvider>
   );
 };
