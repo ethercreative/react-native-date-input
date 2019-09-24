@@ -15,7 +15,7 @@ expo install react-native-date-input
 ```js
 import React, { useState } from 'react';
 import { DateInput } from 'react-native-date-input';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export default (props) => {
   const [date, setDate] = useState('');
@@ -41,8 +41,9 @@ export default (props) => {
         // Supports all TextInput props
       }}
       dateFormat={'DD/MM/YYYY'}
-      defaultDate={new Date(moment().subtract(5, 'year'))}
-      minimumDate={new Date(moment().subtract(10, 'year'))}
+      defaultValue={new Date(dayjs().subtract(5, 'year').format('DD/MM/YYYY'))}
+      defaultDate={new Date(dayjs().subtract(5, 'year'))}
+      minimumDate={new Date(dayjs().subtract(10, 'year'))}
       maximumDate={new Date()}
       handleChange={handleChange}
       onRef={(input) => (dateInput = input)}

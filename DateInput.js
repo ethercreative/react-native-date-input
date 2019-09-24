@@ -19,6 +19,7 @@ import dayjs from 'dayjs';
 export default ({
   inputProps = {},
   dateFormat = 'YYYY-MM-DD',
+  defaultValue = '',
   defaultDate = new Date(),
   minimumDate = null,
   maximumDate = null,
@@ -26,7 +27,7 @@ export default ({
   onRef,
 }) => {
   const [date, setDate] = useState(defaultDate);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(defaultValue);
   const [visible, setVisible] = useState(false);
   const ANDROID = Platform.OS === 'android';
 
