@@ -22,8 +22,8 @@
   "author": "James Edmonston",
   "license": "MIT",
   "dependencies": {
-    "dayjs": "^1.8.16",
-    "react-native-appearance": "^0.1.0",
+    "dayjs": "^1.8.24",
+    "react-native-appearance": "^0.3.3",
     "react-native-iphone-x-helper": "^1.2.1"
   }
 }
