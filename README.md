@@ -5,9 +5,8 @@ A simple React Native date input component that uses `DatePickerAndroid` and `Da
 ## Installation
 
 ```
-npm install react-native-date-input
-yarn add react-native-date-input
-expo install react-native-date-input
+yarn add react-native-date-input dayjs react-native-appearance react-native-iphone-x-helper
+cd ios && pod install
 ```
 
 ## Usage
