@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   DatePickerAndroid,
@@ -27,10 +27,14 @@ export default ({
   handleChange,
   onRef,
 }) => {
-  const [date, setDate] = useState(defaultDate);
-  const [value, setValue] = useState(defaultValue);
-  const [visible, setVisible] = useState(false);
+  const [date, setDate] = React.useState(defaultDate);
+  const [value, setValue] = React.useState(defaultValue);
+  const [visible, setVisible] = React.useState(false);
   const ANDROID = Platform.OS === 'android';
+
+  React.useEffect(() => {
+    setValue(defaultValue);
+  }, [defaultValue]);
 
   const open = async () => {
     Keyboard.dismiss();

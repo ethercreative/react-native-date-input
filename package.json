@@ -1,6 +1,6 @@
 {
   "name": "react-native-date-input",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A simple React Native date input component that uses DatePickerAndroid and DatePickerIOS to select dates",
   "main": "index.js",
   "homepage": "https://github.com/ethercreative/react-native-date-input",
