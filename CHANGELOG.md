@@ -7,11 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.11] - 2020-06-01
 
-- Fixed issue where `defaultValue` wouldn't always update
-
 ### Changed
 
-- Switch to manual dependency management to avoid collisions
+- Fixed issue where `defaultValue` wouldn't always update
 
 ## [1.0.10] - 2020-04-27
 
